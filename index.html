@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perplexity Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Marked for Markdown and Highlight.js for code -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="logo-container">
+            <h1 class="logo">perplexity</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="search-container">
+                <div id="activeSource">
+                    <i data-lucide="file-text" class="small-icon"></i>
+                    <span id="sourceName">Filename.pdf</span>
+                    <button id="removeSource" title="Remove context"><i data-lucide="x" class="small-icon"></i></button>
+                </div>
+                <div class="search-input-wrapper">
+                    <textarea id="searchInput" placeholder="Ask anything..." rows="1" autocomplete="off"></textarea>
+                    
+                    <div class="search-controls">
+                        <div class="search-controls-left">
+                            <button class="icon-btn" id="attachBtn" aria-label="Add file" title="Upload PDF"><i data-lucide="plus"></i></button>
+                            <input type="file" id="fileUpload" accept=".pdf" style="display: none;">
+                            <button class="pill-btn mode-toggle-btn" id="modeToggle">
+                                <i data-lucide="layers"></i> <span id="currentModeText">All</span> <i data-lucide="chevron-down" class="small-icon"></i>
+                            </button>
+                            <div class="dropdown-content" id="modeDropdown">
+                                <button data-mode="all" class="active">All</button>
+                                <button data-mode="academic">Academic</button>
+                                <button data-mode="concise">Concise</button>
+                                <button data-mode="creative">Creative</button>
+                            </div>
+                        </div>
+                        <div class="search-controls-right">
+                            <button class="icon-btn" aria-label="Voice input"><i data-lucide="mic"></i></button>
+                            <button class="icon-btn submit-btn" aria-label="Submit search"><i data-lucide="arrow-right" id="submitIcon"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chatHistory" class="chat-history" style="display: none;">
+                <!-- Messages will be appended here -->
+            </div>
+
+            <div class="suggestions-container" id="suggestionsBox">
+                <div class="suggestions-header">
+                    <i data-lucide="monitor"></i> Try Computer
+                </div>
+                
+                <div class="action-buttons-scroll">
+                    <button class="action-btn"><i data-lucide="lightbulb"></i> Help me learn</button>
+                    <button class="action-btn"><i data-lucide="briefcase"></i> Build a business</button>
+                    <button class="action-btn"><i data-lucide="eye"></i> Monitor the situation</button>
+                    <button class="action-btn"><i data-lucide="code"></i> Create a prototype</button>
+                </div>
+
+                <div class="suggestion-list">
+                    <button class="suggestion-item">Quiz me until I can recall it confidently</button>
+                    <button class="suggestion-item">Find the best resources and give me a running digest</button>
+                    <button class="suggestion-item">Teach me a new skill with weekly check-ins</button>
+                    <button class="suggestion-item">Create a study guide for a certification or exam</button>
+                    <button class="suggestion-item">Compare tools or frameworks and recommend one</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
